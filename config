@@ -1,0 +1,24 @@
+# This is the main configuration file for the flashybrid system.
+
+# The space-separated mountpoint(s) of your flash memory.
+# Support for multiple mountpoints is experimental. Because mountpoints
+# are space-separated, they must not have a space in their full path.
+# example: FLASHMOUNT="/ /srv"
+FLASHMOUNT="/"
+
+# You probably want a ramdisk to be set up with directories that the system
+# needs to write data to frequently, so that your flash disk can be mounted
+# read-only. Flash memory can only be written to several thousand times over
+# its lifetime, so setting up a ramdisk will extend the lifetime of your
+# flash a lot. This is the location to mount the ramdisk. Comment out the
+# line to not set up a ram disk.
+RAMMOUNT=/ram
+
+# This controls the maximum ammount of memory you want to allocate  
+# to the tmpfs RAM drive
+# This parameter is optional, and if you do not supply if, tmpfs will
+# occupy up to 50% of your available memory (ram+swap)
+FLASH_MAX=92m
+
+# You may also want to edit the other files in this directory:
+# ramtmp, ramstore

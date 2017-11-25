@@ -1,0 +1,72 @@
+# translation of flashybrid debconf template to Basque
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# xabier bilbao <xabidu@gmail.com>, 2008.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: flashybrid-eu\n"
+"Report-Msgid-Bugs-To: flashybrid@packages.debian.org\n"
+"POT-Creation-Date: 2016-05-30 16:48+0200\n"
+"PO-Revision-Date: 2008-06-25 18:38+0200\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
+"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid "Note about removal of flashybrid package"
+msgstr "Flashybrid paketea kentzeari buruzko oharra."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+#, fuzzy
+#| msgid ""
+#| "Please be warned, this package  changes the way your system behaves in a "
+#| "really  intrusive way. This package is not enabled by default so it "
+#| "should not make any problems by just installing it. If you want to enable "
+#| "it, please read the  documentation."
+msgid ""
+"Please be warned, this package changes the way your system behaves in a "
+"really  intrusive way. This package is not enabled by default so it should "
+"not make any problems by just installing it. If you want to enable it, "
+"please read the  documentation."
+msgstr ""
+"Kontuz, pakete honek sakon aldatzen du sistemaren funtzionamendua. Paketea "
+"lehenespenez ez dagoenez gaituta, bere instalazio soilak ez luke arazorik "
+"sortu behar. Gaitu nahi baduzu irakur ezazu dokumentazioa."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"If you want to remove this package, you should first disable it, boot the "
+"machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLASHYBRID "
+"RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way, "
+"you can potentially lose data (things like configuration files in /etc/ will "
+"not get synced to the real drive, stay only in the tmpfs and lost on reboot)."
+msgstr ""
+"Pakete hau kendu nahi baduzu, desgaitu ezazu lehenengo, gero ordenagailua "
+"abiarazi, eta SOILIK ORDENAGAILUA FLASHBRID EXEKUTATU GABE BERRABIARAZI "
+"ONDOREN KENDU PAKETEA. Horrela egiten ez baduzu, datuak galtzeko arriskua "
+"izango duzu (adibidez, /etc/ direktoriopean dauden konfigurazioko "
+"fitxategiak ez dira disko fisikoan direnekin sinkronizatuko, tmpfs fitxategi-"
+"sisteman geldituko dira eta berrabiarazitean galduko dira)."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"Please read the Debian documentation found in /usr/share/doc/flashybrid/ "
+"specially README.Debian"
+msgstr ""
+"Irakur ezazu /usr/share/doc/flashybrid/ direktorioan kokatutako Debian-en "
+"dokumentazioa, bereziki README.Debian"

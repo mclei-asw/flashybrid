@@ -1,0 +1,23 @@
+# This is a list of directories that should be set up as temporary
+# directories in the ramdisk. On boot, the directories listed will be
+# created on the ramdisk, mode 1777. Their contents will not be saved
+# across reboots. The equivilent directories on your flash will be
+# removed and replaced with symlinks to these directories.
+
+# Do not put the trailing slash on directories!
+
+
+/tmp
+/var/lib/alsa
+/var/lib/dhcp
+/var/lib/dhcp3
+/var/lib/php4
+/var/lib/php5
+/var/lib/misc
+/var/lib/ntp
+/var/lib/urandom
+/var/lib/apache
+
+# This could go in ramstore if you prefer for its contents to persist
+# across reboots.
+/var/tmp

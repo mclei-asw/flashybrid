@@ -1,0 +1,24 @@
+[Unit]
+Description=Set up hybrid flash root
+DefaultDependencies=no
+
+Requires=local-fs.target
+After=local-fs.target
+
+Before=network-pre.target sysinit.target time-sync.target remote-fs.target systemd-update-utmp.service
+Wants=network-pre.target
+
+Conflicts=shutdown.target
+Before=shutdown.target
+
+RefuseManualStart=yes
+RefuseManualStop=yes
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/etc/init.d/flashybrid start
+ExecStop=/etc/init.d/flashybrid stop
+
+[Install]
+WantedBy=local-fs.target

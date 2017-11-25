@@ -1,0 +1,158 @@
+#!/bin/sh
+
+# Set up/shutdown the flashybrid system, including the ramdisk and partial
+# directory bind mounts. This needs to run at the part of system bootup that
+# mounts all the disks. It should also run at shutdown right before
+# filesystems are unmounted.
+
+# Licensed under the terms of GPL v2
+#  Diego Iastrubni <diego.iastrubni@xorcom.com> 2006
+#  Joey Hess <joeyh@debian.org> 2002-2006
+#  Thibaut VARENE <varenet@debian.org> 2014
+
+
+### BEGIN INIT INFO
+# Provides:          flashybrid
+# Required-Start:    $local_fs
+# Required-Stop:     $local_fs
+# Should-Start:      
+# Should-Stop:       
+# Default-Start:     S
+# Default-Stop:      0 1 6
+# X-Start-Before:    $network
+# X-Stop-Before:     $network
+# Short-Description: automates use of a flash disk as the root filesystem
+# Description:       Flashybrid is a system to help in setting up and managing hybrid
+#                    flash/disk/ram based Debian systems which can run most of the time
+#                    using only a small flash disk for their root filesystem and do a useful,
+#                    but limited task (such as being a router, or a PDA, or a rescue system
+#                    on a USB keydrive). The flash can be as small as 32 mb, though 64 to 256
+#                    mb is more comfortable.
+### END INIT INFO
+
+. /lib/lsb/init-functions
+
+CONFDIR=/etc/flashybrid
+if [ -e $CONFDIR/config ]; then
+	. $CONFDIR/config
+fi
+
+ENABLED=no
+if [ -e /etc/default/flashybrid ]; then
+	. /etc/default/flashybrid
+fi
+
+if [ -z "$RAMMOUNT" ]; then
+	exit 0
+fi
+
+is_mounted () {
+	grep -q " $1 " /proc/mounts
+}
+
+case "$1" in
+start)
+	if [ "$ENABLED" != yes ]; then
+		log_warning_msg "Not setting up flashybrid system: disabled."
+		exit
+	fi
+	
+	if [ ! -d "$RAMMOUNT" ] ; then
+		log_failure_msg "Error, RAMMOUNT directory is not found ($RAMMOUNT)"
+		exit 1
+	fi
+	
+	log_daemon_msg "Setting up flashybrid system for"
+		
+	EXTRA_PARAMS=""
+	
+	if [ "xx$FLASH_MAX" != "xx" ]; then
+	    EXTRA_PARAMS=" -o size=$FLASH_MAX "
+	fi
+			
+	# Set up ram disk to hold variable data.
+	if ! is_mounted $RAMMOUNT; then
+		mount --make-private tmpfs -t tmpfs $RAMMOUNT $EXTRA_PARAMS
+	fi
+
+	# Temporary directories on ram disk.
+	cp $CONFDIR/ramtmp $RAMMOUNT/.fh-config-ramtmp
+	for dir in $(grep -v '^#' $CONFDIR/ramtmp); do
+		if [ -d $dir ]; then
+        		mkdir -p -m 1777 $RAMMOUNT/$dir
+			if is_mounted $dir; then
+				umount $dir
+			fi
+			mount --make-private --bind $RAMMOUNT/$dir $dir
+		fi
+	done
+
+	# when syncing we will use this configuration for restoring,
+	# as the user may modify the configuration on the disk, and completely
+	# mess up the system, eventually making his machine unusable
+	cp $CONFDIR/ramstore $RAMMOUNT/.fh-config-ramstore
+	
+	# Copy data from flash to ram disk for these directories
+	for dir in $(grep -v '^#' $CONFDIR/ramstore); do
+		# Skip dirs that are not present.
+		if [ -d $dir ]; then
+			if [ "$VERBOSE" = yes ]; then
+			    log_progress_msg "$dir"
+			fi
+			
+			ramdir=$RAMMOUNT$dir
+			if is_mounted $dir; then
+				umount $dir
+			fi
+			
+			if is_mounted $ramdir.flash; then
+				umount $ramdir.flash
+			fi
+			
+			if [ ! -d $ramdir ]; then
+				mkdir -p ${ramdir%/*} # dirname
+			        cp -a $dir $ramdir
+			fi			
+			mkdir -p $ramdir.flash
+			mount --make-private --bind $dir $ramdir.flash
+			mount --make-private --bind $ramdir $dir
+		fi
+	done
+
+	log_end_msg 0
+	mountro
+	;;
+
+stop)
+	if [ "$ENABLED" != yes ]; then
+		log_warning_msg "Not shutting down flashybrid system: disabled."
+		exit
+	fi
+	
+	fh-sync
+	mountrw
+	;;
+
+reload)
+	echo "This target is available only for compatibility."
+	echo "Gracefully exiting"
+	;;
+
+restart)
+	echo "This target is available only for compatibility, and usually will fail to work"
+	echo "It is highly recommended to reboot the system instead"
+	echo "If you really want to restart this service please try 'force-reload'."
+	echo 
+	echo "Gracefully exiting"
+	;;
+
+force-reload)
+	$0 stop
+	$0 start
+	;;
+
+*)
+	echo "Usage: $0 {start|stop|restart|force-reload}"
+	exit 1
+;;
+esac

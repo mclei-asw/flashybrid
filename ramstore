@@ -1,0 +1,42 @@
+# This is a list of directories that are used to store variable data
+# that is written to during normal operation of the system, and that should
+# be preserved across reboots.
+#
+# On boot, the listed directories on your flash disk will be copied to the
+# ram disk, and then bind mounts will be used to make the directories on
+# the ram disk replace them.
+#
+# On shutdown, the contents of those directories on the ramdisk will be
+# rsynced back to the flash disk.
+#
+# Directories listed here that are not present will be silently ignored. 
+# Do not put the trailing slash on directories!
+
+# Should always be in ram disk.
+/etc
+/var/lib/alsa
+/var/lib/asterisk
+/var/lib/discover
+/var/lib/dbus
+/var/lib/exim4
+/var/lib/op-panel
+/var/lib/logrotate
+/var/lib/mysql
+/var/log
+/root
+
+# If you don't use devfs/udev, you will want /dev in ram, since many things
+# need to modify it when the system is running. Not needed on systems
+# running udev.
+#/dev
+
+# Necessary if the system is to be able to send mail while in embedded
+# mode.
+/var/spool
+/var/mail
+
+# Some daemons might require write access to subfolders of /var/cache,
+# it might be a good idea to add these subfolders here or make the whole
+# of /var/cache mirrored in tmpfs. Note that this is likely to be wasteful
+# (large amount of data to be held in tmpfs)
+#/var/cache

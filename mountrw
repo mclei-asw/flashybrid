@@ -1,0 +1,63 @@
+#!/bin/sh
+
+#
+# Remount the system in RW mode. 
+# Licensed under the terms GPL V2.
+#
+
+CONFDIR=/etc/flashybrid
+
+is_mounted () 
+{
+	grep -q " $1 " /proc/mounts
+}
+
+ENABLED=no
+if [ -e /etc/default/flashybrid ]; then
+	. /etc/default/flashybrid
+fi
+
+if [ "$ENABLED" != yes ]; then
+	# we ignore the setups in which flash hybrid is not configured
+ 	echo "Flashybrid system: disabled."
+	exit
+fi
+
+if [ -e $CONFDIR/config ]; then
+	. $CONFDIR/config
+else
+	# we ignore quietly the setups in which flash hybrid is not configured
+	exit
+fi
+
+if ! is_mounted "$RAMMOUNT" ; then
+    echo "Flashybrid is not started. Ignoring"
+    exit
+fi
+
+if [ -z "$FLASHMOUNT" ]; then
+	exit 1
+fi
+
+echo -n "Mounting flashybrid system RW..."
+
+# if verbose, make a new line feed, 
+# this way the first message will get a new line
+if [ "$VERBOSE" = "yes" ]; then
+	echo " "
+fi
+
+for dir in ${FLASHMOUNT}; do
+	if [ "$VERBOSE" = "yes" ]; then
+       		echo -n "Remounting $dir"
+	fi
+		
+	# Remount every $dir read-write
+	mount -o remount,rw $dir
+
+	if [ "$VERBOSE" = "yes" ]; then
+       		echo "."
+	fi
+done
+
+echo "done."

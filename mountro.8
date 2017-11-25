@@ -1,0 +1,18 @@
+.TH MOUNTRO 8
+.SH NAME
+mountro \- remount the filesystem as read only
+.SH SYNOPSIS
+.B mountro
+.SH DESCRIPTION
+mountro remounts the filesystem as read only. The script is just a wrapper to a 
+series of normal mount command.
+
+.nf
+.B mount -o mount,ro <dir>
+.fi
+
+.SH SEE ALSO
+.BR fh-sync (8)
+.BR mountrw (8)
+.SH AUTHOR
+Diego Iastrubni <diego.iastrubni@xorcom.com>

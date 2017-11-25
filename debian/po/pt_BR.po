@@ -1,0 +1,71 @@
+# flashybrid Brazilian Portuguese translation
+# Copyright (C) 2008 THE flashybrid'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the flashybrid package.
+# Felipe Augusto van de Wiel (faw) <faw@debian.org>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.15 (20080617)\n"
+"Report-Msgid-Bugs-To: flashybrid@packages.debian.org\n"
+"POT-Creation-Date: 2016-05-30 16:48+0200\n"
+"PO-Revision-Date: 2008-10-10 00:21-0300\n"
+"Last-Translator: Felipe Augusto van de Wiel (faw) <faw@debian.org>\n"
+"Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
+"org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid "Note about removal of flashybrid package"
+msgstr "Nota sobre a remoção do pacote flashybrid"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+#, fuzzy
+#| msgid ""
+#| "Please be warned, this package  changes the way your system behaves in a "
+#| "really  intrusive way. This package is not enabled by default so it "
+#| "should not make any problems by just installing it. If you want to enable "
+#| "it, please read the  documentation."
+msgid ""
+"Please be warned, this package changes the way your system behaves in a "
+"really  intrusive way. This package is not enabled by default so it should "
+"not make any problems by just installing it. If you want to enable it, "
+"please read the  documentation."
+msgstr ""
+"Por favor, fique avisado de que este pacote muda a forma como o seu sistema "
+"se comporta de forma muito intrusiva. Este pacote não é habilitado por "
+"padrão, portanto não deveria causar quaisquer problemas somente por ser "
+"instalado. Se você quer habilitá-lo, por favor, leia a documentação."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"If you want to remove this package, you should first disable it, boot the "
+"machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLASHYBRID "
+"RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way, "
+"you can potentially lose data (things like configuration files in /etc/ will "
+"not get synced to the real drive, stay only in the tmpfs and lost on reboot)."
+msgstr ""
+"Se você deseja remover este pacote, você deveria primeiro desabilitá-lo, "
+"inicializar a máquina e SOMENTE QUANDO A MÁQUINA TIVER SIDO REINICIALIZADA "
+"SEM A EXECUÇÃO DO FLASHYBRID VOCÊ PODE REMOVER O PACOTE. Se você não fizer "
+"isto desta forma, você pode potencialmente perder dados (coisas como "
+"arquivos de configuração no /etc/ não serão sincronizados na unidade real, "
+"ficarão somente no tmpfs e serão perdidos na reinicialização)."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"Please read the Debian documentation found in /usr/share/doc/flashybrid/ "
+"specially README.Debian"
+msgstr ""
+"Por favor, leia a documentação Debian encontrada em /usr/share/doc/"
+"flashybrid/, especialmente o README.Debian."

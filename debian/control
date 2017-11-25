@@ -1,0 +1,20 @@
+Source: flashybrid
+Section: admin
+Priority: extra
+Maintainer: Thibaut VARENE <varenet@debian.org>
+Build-Depends: debhelper (>= 5.0.0), po-debconf, dh-systemd
+Standards-Version: 3.9.6
+
+Package: flashybrid
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, rsync
+Description: automates use of a flash disk as the root filesystem
+ Flashybrid is a system to help in setting up and managing hybrid
+ flash/disk/ram based Debian systems which can run most of the time
+ using only a small flash disk for their root filesystem and do a useful,
+ but limited task (such as being a router, or a PDA, or a rescue system
+ on a USB keydrive). The flash can be as small as 32 mb, though 64 to 256
+ mb is more comfortable. 
+ .
+ To use this package, you will need a 2.4 or greater version of the Linux
+ kernel, with tmpfs support built in.

@@ -1,0 +1,71 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: flashybrid\n"
+"Report-Msgid-Bugs-To: flashybrid@packages.debian.org\n"
+"POT-Creation-Date: 2016-05-30 16:48+0200\n"
+"PO-Revision-Date: 2007-10-19 20:09+0100\n"
+"Last-Translator: Bart Cornelis <cobaco@skolelinux.no>\n"
+"Language-Team: debian-l10n-dutch <debian-l10n-dutch@lists.debian.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid "Note about removal of flashybrid package"
+msgstr "Opmerking bij het verwijderen van het pakket 'flashybrid'"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+#, fuzzy
+#| msgid ""
+#| "Please be warned, this package  changes the way your system behaves in a "
+#| "really  intrusive way. This package is not enabled by default so it "
+#| "should not make any problems by just installing it. If you want to enable "
+#| "it, please read the  documentation."
+msgid ""
+"Please be warned, this package changes the way your system behaves in a "
+"really  intrusive way. This package is not enabled by default so it should "
+"not make any problems by just installing it. If you want to enable it, "
+"please read the  documentation."
+msgstr ""
+"Wanneer geactiveerd, veranderd dit pakket de manier waarop uw systeem werkt "
+"op een ingrijpende manier. Standaard is dit pakket niet geactiveerd en kunt "
+"u het dus zonder problemen installeren. Gelieve wanneer u het wilt activeren "
+"eerst de documentatie te lezen. U bent gewaarschuwd. "
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"If you want to remove this package, you should first disable it, boot the "
+"machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLASHYBRID "
+"RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way, "
+"you can potentially lose data (things like configuration files in /etc/ will "
+"not get synced to the real drive, stay only in the tmpfs and lost on reboot)."
+msgstr ""
+"Als u dit pakket wilt verwijderen dient u eerst: het pakket te deactiveren, "
+"te herstarten, en PAS DAARNA WANNEER DE MACHINE HERSTART IS ZONDER DAT "
+"FLASHYBRID DRAAIT HET PAKKET TE VERWIJDEREN. Als u dit nalaat kunt u data "
+"verliezen (dingen zoals configuratiebestanden in /etc/ blijven in tmpfs en "
+"worden niet gesynchroniseerd naar de echte schijf, waardoor ze verloren gaan "
+"bij een herstart).  "
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"Please read the Debian documentation found in /usr/share/doc/flashybrid/ "
+"specially README.Debian"
+msgstr ""
+"De Debian-documentatie vindt u in /usr/share/doc/flashybrid, met name README."
+"debian ."

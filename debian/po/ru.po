@@ -1,0 +1,71 @@
+# translation of ru.po to Russian
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Yuri Kozlov <kozlov.y@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: flashybrid 0.15\n"
+"Report-Msgid-Bugs-To: flashybrid@packages.debian.org\n"
+"POT-Creation-Date: 2016-05-30 16:48+0200\n"
+"PO-Revision-Date: 2008-06-15 18:58+0400\n"
+"Last-Translator: Yuri Kozlov <kozlov.y@gmail.com>\n"
+"Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid "Note about removal of flashybrid package"
+msgstr "Замечание об удалении пакета flashybrid"
+
+#. Type: note
+#. Description
+#: ../templates:1001
+#, fuzzy
+#| msgid ""
+#| "Please be warned, this package  changes the way your system behaves in a "
+#| "really  intrusive way. This package is not enabled by default so it "
+#| "should not make any problems by just installing it. If you want to enable "
+#| "it, please read the  documentation."
+msgid ""
+"Please be warned, this package changes the way your system behaves in a "
+"really  intrusive way. This package is not enabled by default so it should "
+"not make any problems by just installing it. If you want to enable it, "
+"please read the  documentation."
+msgstr ""
+"НУЖНО ОТМЕТИТЬ, что этот пакет влияет на работу всей системы. Он не включён "
+"по умолчанию, поэтому простая установка не вызовет проблем. Если вы хотите "
+"включить его, прочтите документацию."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"If you want to remove this package, you should first disable it, boot the "
+"machine, and ONLY WHEN THE MACHINE HAS BEEN REBOOTED WITHOUT FLASHYBRID "
+"RUNNING YOU CAN REMOVE THE PACKAGE ITSELF. If you do not to do it this way, "
+"you can potentially lose data (things like configuration files in /etc/ will "
+"not get synced to the real drive, stay only in the tmpfs and lost on reboot)."
+msgstr ""
+"Если вы захотите удалить этот пакет, то сначала должны его выключить, "
+"перезагрузить компьютер, и ТОЛЬКО ПОСЛЕ ЭТОГО БЕЗ РАБОТАЮЩЕГО FLASHYBRID ВЫ "
+"МОЖЕТЕ УДАЛИТЬ САМ ПАКЕТ. Если вы так не сделаете, то можете потерять данные "
+"(например, файлы настроек в /etc/ не будут синхронизированы с реальным "
+"диском, останутся только в tmpfs и потеряются при перезагрузке."
+
+#. Type: note
+#. Description
+#: ../templates:1001
+msgid ""
+"Please read the Debian documentation found in /usr/share/doc/flashybrid/ "
+"specially README.Debian"
+msgstr ""
+"Прочтите документацию Debian из /usr/share/doc/flashybrid/, особенно README."
+"debian"
