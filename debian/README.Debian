@@ -30,3 +30,10 @@ plymouth will prevent flashybrid from remounting / read-only during startup:
 either remove plymouth or add 'mountro' to /etc/rc.local
 
  -- Diego Iastrubni <diego.iastrubni@xorcom.com>  Thu, 15 Feb 2007 10:00:00 +0200
+
+Another option for cope with plymouth remount / read-only is to disable opening
+the /var/log/boot.log file. It could be easily done by creating it as directory:
+  rm /var/log/boot.log
+  mkdir /var/log/boot.log
+
+ -- Michal Leinweber <lei@aswsyst.cz>  Sat, 25 Nov 2017 16:23:06 +0100
